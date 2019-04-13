@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/quotes', function(req, res){
     if(req.query.year){
-        db.all('SELECT * FROM quotes WHERE year = ?', [req.query.year], function(err, rows){ // placeholder ? character only works with strings for some reason. Expected input problem? 
+        db.all('SELECT * FROM quotes WHERE year = ?', [req.query.year], function(err, rows){
             console.log("Return a list of quotes from the year: " + req.query.year);
             res.json(rows);
         });
